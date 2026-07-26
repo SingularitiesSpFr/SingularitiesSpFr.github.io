@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">Spain–France Singularities Conference logo</title>
+  <desc id="logo-desc">Two opposing semicubical cusps meet at a singular point. The left cusp contains the Spanish flag and the right cusp contains the French flag.</desc>
+  <defs>
+    <clipPath id="spain-cusp">
+      <path d="M360 160C360 160 251.333 160 34 34V286C251.333 160 360 160 360 160Z"/>
+    </clipPath>
+    <clipPath id="france-cusp">
+      <path d="M360 160C360 160 468.667 160 686 34V286C468.667 160 360 160 360 160Z"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#spain-cusp)">
+    <path d="M34 34H360V286H34Z" fill="#AA151B"/>
+    <path d="M34 97H360V223H34Z" fill="#F1BF00"/>
+  </g>
+
+  <g clip-path="url(#france-cusp)">
+    <path d="M360 34H468.667V286H360Z" fill="#0055A4"/>
+    <path d="M468.667 34H577.333V286H468.667Z" fill="#FFFFFF"/>
+    <path d="M577.333 34H686V286H577.333Z" fill="#EF4135"/>
+  </g>
+
+  <path d="M360 160C360 160 251.333 160 34 34V286C251.333 160 360 160 360 160Z" fill="none" stroke="#173D36" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M360 160C360 160 468.667 160 686 34V286C468.667 160 360 160 360 160Z" fill="none" stroke="#173D36" stroke-width="10" stroke-linejoin="round"/>
+  <circle cx="360" cy="160" r="10" fill="#F2EEE5" stroke="#173D36" stroke-width="6"/>
+</svg>

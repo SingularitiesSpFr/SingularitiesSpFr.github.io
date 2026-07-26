@@ -140,10 +140,22 @@ img {
   min-height: 2.75rem;
   padding: .3rem 0;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: .7rem;
   color: inherit;
   line-height: 1.05;
   text-decoration: none;
+}
+
+.wordmark-logo {
+  width: 4.4rem;
+  height: auto;
+  flex: none;
+}
+
+.wordmark-copy {
+  display: flex;
+  flex-direction: column;
 }
 
 .wordmark-kicker {
@@ -387,83 +399,25 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
   border-left: 1px solid rgba(255, 255, 255, .2);
-  background: #12342f;
+  background-color: #12342f;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
-.hero-figure svg {
+.hero-logo {
   width: 100%;
-  color: rgba(255, 255, 255, .12);
-}
-
-.figure-axis {
-  stroke: rgba(255, 255, 255, .27);
-  stroke-width: 1.2;
-}
-
-.figure-curve {
-  fill: none;
-  stroke-linecap: round;
-  stroke-width: 4.5;
-  vector-effect: non-scaling-stroke;
-}
-
-.figure-curve-blue {
-  stroke: #78b4d4;
-}
-
-.figure-curve-red {
-  stroke: #e48064;
-}
-
-.figure-origin {
-  fill: var(--white);
-}
-
-.figure-point {
-  fill: var(--red);
-}
-
-.figure-label,
-.figure-equation,
-.figure-number,
-.figure-month,
-.figure-city {
-  fill: var(--white);
-  font-family: var(--mono);
-}
-
-.figure-label {
-  font-size: 14px;
-}
-
-.figure-equation {
-  fill: rgba(255, 253, 248, .65);
-  font-family: var(--serif);
-  font-size: 22px;
-  font-style: italic;
-}
-
-.figure-number {
-  font-size: 20px;
-  letter-spacing: .08em;
-}
-
-.figure-month {
-  fill: rgba(255, 253, 248, .58);
-  font-size: 11px;
-  letter-spacing: .19em;
-}
-
-.figure-city {
-  font-size: 15px;
-  letter-spacing: .22em;
+  height: auto;
 }
 
 .hero-figure > p {
-  margin: 1rem 0 0;
+  margin: 0;
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   color: rgba(255, 253, 248, .5);
   font-family: var(--mono);
   font-size: .65rem;
@@ -471,8 +425,17 @@ img {
   text-transform: uppercase;
 }
 
-.hero-figure > p span {
-  color: var(--red);
+.hero-figure-equation {
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: .9rem;
+  font-style: italic;
+  letter-spacing: .04em;
+  text-transform: none;
+}
+
+.hero-figure-place {
+  color: rgba(255, 253, 248, .58);
 }
 
 .event-facts {
@@ -1214,22 +1177,9 @@ a.person-name:hover {
   color: var(--white);
 }
 
-.footer-mark svg {
+.footer-mark img {
   width: 10rem;
-}
-
-.footer-mark path {
-  fill: none;
-  stroke: rgba(255, 255, 255, .68);
-  stroke-width: 1.7;
-}
-
-.footer-mark path:nth-child(2) {
-  stroke: #e48064;
-}
-
-.footer-mark circle {
-  fill: var(--white);
+  height: auto;
 }
 
 .footer-title p {
@@ -1269,6 +1219,10 @@ a.person-name:hover {
   .header-inner {
     grid-template-columns: minmax(10rem, .8fr) auto minmax(8rem, .8fr);
     gap: 1rem;
+  }
+
+  .wordmark-logo {
+    width: 3.7rem;
   }
 
   .primary-nav {
@@ -1621,6 +1575,22 @@ a.person-name:hover {
 }
 
 @media (max-width: 560px) {
+  .wordmark {
+    gap: .55rem;
+  }
+
+  .wordmark-logo {
+    width: 3.25rem;
+  }
+
+  .wordmark-kicker {
+    display: none;
+  }
+
+  .wordmark-main {
+    font-size: .96rem;
+  }
+
   .hero-copy {
     min-height: auto;
     padding-top: 4.25rem;
