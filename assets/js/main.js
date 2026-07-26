@@ -63,7 +63,6 @@
 
   const timetableTalks = [...document.querySelectorAll(".timetable-talk")];
   const programmeDetail = document.querySelector("#programme-detail");
-  const programmePrompt = document.querySelector("[data-programme-prompt]");
   const programmeContent = document.querySelector("[data-programme-content]");
   const programmeStatus = document.querySelector("[data-programme-status]");
   const programmeReturn = document.querySelector("[data-programme-return]");
@@ -77,8 +76,6 @@
   const resetTalk = (talk) => {
     talk.classList.remove("is-selected");
     talk.setAttribute("aria-expanded", "false");
-    const abstractJump = talk.parentElement?.querySelector(".timetable-abstract-jump");
-    if (abstractJump) abstractJump.hidden = true;
   };
 
   const closeProgrammeDetail = ({ restoreFocus = false } = {}) => {
@@ -86,8 +83,8 @@
     if (selectedTalk) resetTalk(selectedTalk);
     selectedTalk = null;
 
-    if (programmePrompt) programmePrompt.hidden = false;
     if (programmeContent) programmeContent.hidden = true;
+    programmeDetail?.classList.remove("is-visible");
     if (programmeStatus) programmeStatus.textContent = "Talk details closed.";
 
     if (restoreFocus && talkToRestore) {
@@ -99,7 +96,6 @@
   if (
     timetableTalks.length &&
     programmeDetail &&
-    programmePrompt &&
     programmeContent &&
     programmeStatus &&
     programmeReturn &&
@@ -110,7 +106,7 @@
     detailAbstract
   ) {
     timetableTalks.forEach((talk) => {
-      talk.addEventListener("click", () => {
+      talk.addEventListener("click", (event) => {
         if (selectedTalk === talk) {
           closeProgrammeDetail();
           return;
@@ -120,24 +116,27 @@
         selectedTalk = talk;
 
         const speaker = talk.querySelector(".timetable-speaker")?.textContent.trim() || "Speaker";
-        const title = talk.querySelector(".timetable-title")?.textContent.trim() || "Title to be announced";
-        const abstractJump = talk.parentElement?.querySelector(".timetable-abstract-jump");
+        const title = talk.querySelector(".timetable-title")?.textContent.trim() || "Title forthcoming";
 
         talk.classList.add("is-selected");
         talk.setAttribute("aria-expanded", "true");
-        if (abstractJump) {
-          abstractJump.hidden = false;
-          abstractJump.setAttribute("aria-label", `Read abstract for ${speaker} below`);
-        }
 
         detailDay.textContent = talk.dataset.day || "";
         detailTime.textContent = talk.dataset.time || "";
         detailTitle.textContent = title;
         detailSpeaker.textContent = speaker;
-        detailAbstract.textContent = talk.dataset.abstract || "Abstract to be announced.";
-        programmePrompt.hidden = true;
+        detailAbstract.textContent = talk.dataset.abstract || "Abstract forthcoming.";
         programmeContent.hidden = false;
+        programmeDetail.classList.add("is-visible");
+        programmeReturn.setAttribute("aria-label", `Return to ${speaker} in the timetable`);
         programmeStatus.textContent = `Showing details for ${speaker}, ${talk.dataset.day}, ${talk.dataset.time}.`;
+
+        if (event.detail === 0) {
+          requestAnimationFrame(() => {
+            programmeDetail.focus({ preventScroll: true });
+            programmeDetail.scrollIntoView({ block: "start" });
+          });
+        }
       });
     });
 
@@ -168,7 +167,6 @@
       status.hidden = false;
       status.textContent = message;
       status.classList.toggle("is-error", type === "error");
-      status.setAttribute("role", type === "error" ? "alert" : "status");
       status.focus({ preventScroll: true });
     };
 
