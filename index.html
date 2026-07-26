@@ -657,76 +657,126 @@
             <a class="button button-dark registration-calendar" href="singularities-angers-2027.ics" download>Save the conference dates</a>
           </div>
 
-          <form class="registration-form" action="https://api.web3forms.com/submit" method="POST" data-registration-form aria-describedby="registration-privacy registration-status">
-            <input type="hidden" name="access_key" value="ae7c8853-b69c-4e80-9540-365b29db9cf8">
-            <input type="hidden" name="subject" value="New registration — Spain–France Singularities 2027">
-            <input type="hidden" name="from_name" value="Singularities 2027 registration">
-            <input class="form-honeypot" id="registration-botcheck" type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true">
+          <div class="registration-forms">
+            <form class="registration-form" action="https://api.web3forms.com/submit" method="POST" data-web3form data-pending-label="Sending registration…" data-success-message="Thank you — your registration has been sent to the conference organisers." data-error-message="We could not send your registration. Please try again or email singularities-fr-sp@gmail.com." aria-describedby="registration-privacy registration-status">
+              <input type="hidden" name="access_key" value="ae7c8853-b69c-4e80-9540-365b29db9cf8">
+              <input type="hidden" name="subject" value="New registration — Spain–France Singularities 2027">
+              <input type="hidden" name="from_name" value="Singularities 2027 registration">
+              <input type="hidden" name="Request type" value="New conference registration">
+              <input class="form-honeypot" id="registration-botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-            <div class="registration-form-header">
-              <h3>Your details</h3>
-              <p>Fields marked “required” must be completed.</p>
-            </div>
-
-            <div class="registration-form-fields">
-              <div class="form-field">
-                <label for="registration-name">Full name <span>Required</span></label>
-                <input id="registration-name" type="text" name="name" autocomplete="name" maxlength="120" required>
+              <div class="registration-form-header">
+                <h3>Your details</h3>
+                <p>Fields marked “required” must be completed.</p>
               </div>
 
-              <div class="form-field">
-                <label for="registration-email">Email address <span>Required</span></label>
-                <input id="registration-email" type="email" name="email" autocomplete="email" maxlength="320" required>
+              <div class="registration-form-fields">
+                <div class="form-field">
+                  <label for="registration-name">Full name <span>Required</span></label>
+                  <input id="registration-name" type="text" name="name" autocomplete="name" maxlength="120" required>
+                </div>
+
+                <div class="form-field">
+                  <label for="registration-email">Email address <span>Required</span></label>
+                  <input id="registration-email" type="email" name="email" autocomplete="email" maxlength="320" aria-describedby="registration-email-help" required>
+                  <p class="form-help" id="registration-email-help">Already registered? Please do not submit again. <a href="mailto:singularities-fr-sp@gmail.com">Email the organisers</a> to correct your details; repeated submissions are reviewed manually.</p>
+                </div>
+
+                <div class="form-field">
+                  <label for="registration-affiliation">Affiliation or institution <span>Required</span></label>
+                  <input id="registration-affiliation" type="text" name="Affiliation" autocomplete="organization" maxlength="180" required>
+                </div>
+
+                <div class="form-field">
+                  <label for="registration-country">Country <span>Required</span></label>
+                  <input id="registration-country" type="text" name="Country" autocomplete="country-name" maxlength="100" required>
+                </div>
+
+                <div class="form-field form-field-wide">
+                  <label for="registration-stage">Career stage <span>Optional</span></label>
+                  <select id="registration-stage" name="Career stage">
+                    <option value="">Select one</option>
+                    <option>Doctoral student</option>
+                    <option>Postdoctoral researcher</option>
+                    <option>Faculty or researcher</option>
+                    <option>Independent researcher</option>
+                    <option>Other or prefer not to say</option>
+                  </select>
+                </div>
+
+                <div class="form-field form-field-wide">
+                  <label for="registration-message">Notes for the organisers <span>Optional</span></label>
+                  <textarea id="registration-message" name="message" rows="5" maxlength="1200" aria-describedby="registration-message-help"></textarea>
+                  <p class="form-help" id="registration-message-help">Please do not include sensitive personal or medical information.</p>
+                </div>
+
+                <label class="form-check">
+                  <input id="registration-participant-list" type="checkbox" name="Participant list permission" value="Yes — publish my name and affiliation">
+                  <span>You may publish my name and affiliation in the participant list on this website. <strong>Optional</strong></span>
+                </label>
+
+                <label class="form-check">
+                  <input id="registration-acknowledgement" type="checkbox" name="Data processing acknowledgement" value="Accepted" required>
+                  <span>I understand that my details will be sent to the conference organisers through Web3Forms and used to manage my registration. <strong>Required</strong></span>
+                </label>
+
+                <p class="registration-privacy" id="registration-privacy">Your submission is delivered to the conference organisers through Web3Forms. It is not published automatically; after review, only the name and affiliation of participants who consented may be added to the public list.</p>
+
+                <div class="registration-actions">
+                  <button class="button button-dark registration-submit" type="submit" data-form-submit>
+                    <span data-form-submit-label>Register for the conference</span>
+                  </button>
+                  <p class="registration-status" id="registration-status" role="status" aria-live="polite" tabindex="-1" data-form-status hidden></p>
+                </div>
               </div>
+            </form>
 
-              <div class="form-field">
-                <label for="registration-affiliation">Affiliation or institution <span>Required</span></label>
-                <input id="registration-affiliation" type="text" name="Affiliation" autocomplete="organization" maxlength="180" required>
+            <details class="registration-cancellation" id="cancel-registration">
+              <summary>Already registered? Request cancellation</summary>
+              <div class="cancellation-panel">
+                <p>Use the same name and email address as your registration. For safety, the organisers will contact that address to verify the request before removing your registration.</p>
+
+                <form class="cancellation-form" action="https://api.web3forms.com/submit" method="POST" data-web3form data-pending-label="Sending request…" data-success-message="Your cancellation request has been sent. The organisers will email you to verify it before removing your registration." data-error-message="We could not send your cancellation request. Please try again or email singularities-fr-sp@gmail.com." aria-describedby="cancellation-privacy cancellation-status">
+                  <input type="hidden" name="access_key" value="ae7c8853-b69c-4e80-9540-365b29db9cf8">
+                  <input type="hidden" name="subject" value="Cancellation request — Spain–France Singularities 2027">
+                  <input type="hidden" name="from_name" value="Singularities 2027 cancellation">
+                  <input type="hidden" name="Request type" value="Registration cancellation">
+                  <input class="form-honeypot" id="cancellation-botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                  <div class="registration-form-fields">
+                    <div class="form-field">
+                      <label for="cancellation-name">Full name <span>Required</span></label>
+                      <input id="cancellation-name" type="text" name="name" autocomplete="name" maxlength="120" required>
+                    </div>
+
+                    <div class="form-field">
+                      <label for="cancellation-email">Registration email <span>Required</span></label>
+                      <input id="cancellation-email" type="email" name="email" autocomplete="email" maxlength="320" required>
+                    </div>
+
+                    <div class="form-field form-field-wide">
+                      <label for="cancellation-message">Note for the organisers <span>Optional</span></label>
+                      <textarea id="cancellation-message" name="message" rows="3" maxlength="600"></textarea>
+                    </div>
+
+                    <label class="form-check">
+                      <input id="cancellation-confirmation" type="checkbox" name="Cancellation acknowledgement" value="Accepted" required>
+                      <span>I understand that my registration remains active until the organisers confirm cancellation by email. <strong>Required</strong></span>
+                    </label>
+
+                    <p class="registration-privacy" id="cancellation-privacy">Cancellation is not automatic. Your registration and any public participant entry will be removed after the request is verified.</p>
+
+                    <div class="registration-actions">
+                      <button class="button button-dark registration-submit" type="submit" data-form-submit>
+                        <span data-form-submit-label>Request cancellation</span>
+                      </button>
+                      <p class="registration-status" id="cancellation-status" role="status" aria-live="polite" tabindex="-1" data-form-status hidden></p>
+                    </div>
+                  </div>
+                </form>
               </div>
-
-              <div class="form-field">
-                <label for="registration-country">Country <span>Required</span></label>
-                <input id="registration-country" type="text" name="Country" autocomplete="country-name" maxlength="100" required>
-              </div>
-
-              <div class="form-field form-field-wide">
-                <label for="registration-stage">Career stage <span>Optional</span></label>
-                <select id="registration-stage" name="Career stage">
-                  <option value="">Select one</option>
-                  <option>Doctoral student</option>
-                  <option>Postdoctoral researcher</option>
-                  <option>Faculty or researcher</option>
-                  <option>Independent researcher</option>
-                  <option>Other or prefer not to say</option>
-                </select>
-              </div>
-
-              <div class="form-field form-field-wide">
-                <label for="registration-message">Notes for the organisers <span>Optional</span></label>
-                <textarea id="registration-message" name="message" rows="5" maxlength="1200" aria-describedby="registration-message-help"></textarea>
-                <p class="form-help" id="registration-message-help">Please do not include sensitive personal or medical information.</p>
-              </div>
-
-              <label class="form-check">
-                <input id="registration-participant-list" type="checkbox" name="Participant list permission" value="Yes — publish my name and affiliation">
-                <span>You may publish my name and affiliation in the participant list on this website. <strong>Optional</strong></span>
-              </label>
-
-              <label class="form-check">
-                <input id="registration-acknowledgement" type="checkbox" name="Data processing acknowledgement" value="Accepted" required>
-                <span>I understand that my details will be sent to the conference organisers through Web3Forms and used to manage my registration. <strong>Required</strong></span>
-              </label>
-
-              <p class="registration-privacy" id="registration-privacy">Your submission is delivered to the conference organisers through Web3Forms. It is not published automatically.</p>
-
-              <div class="registration-actions">
-                <button class="button button-dark registration-submit" type="submit" data-registration-submit>
-                  <span data-registration-submit-label>Register for the conference</span>
-                </button>
-                <p class="registration-status" id="registration-status" role="status" aria-live="polite" tabindex="-1" data-registration-status hidden></p>
-              </div>
-            </div>
-          </form>
+            </details>
+          </div>
         </div>
       </div>
     </section>
@@ -735,7 +785,7 @@
       <div class="section-body">
         <h2 id="participants-title">Participants</h2>
         <div class="participants-intro">
-          <p class="lead">The participant list will grow here as registrations are confirmed.</p>
+          <p class="lead">The organisers will add confirmed participants who agreed to publish their name and affiliation.</p>
         </div>
 
         <ol class="person-register person-register-light participant-register">

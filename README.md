@@ -18,3 +18,11 @@ Then open <http://localhost:8000>.
 GitHub Pages publishes the `main` branch from the repository root:
 
 <https://singularitiesspfr.github.io/>
+
+## Registration workflow
+
+Registration and cancellation-request forms are delivered to the organisers by
+Web3Forms. Web3Forms does not enforce one submission per email, so duplicate
+registrations are reconciled manually in the conference inbox. The public
+participant list is updated by the organisers and includes only people who
+explicitly agreed to publish their name and affiliation.

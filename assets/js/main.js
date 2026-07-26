@@ -153,44 +153,49 @@
     });
   }
 
-  const registrationForm = document.querySelector("[data-registration-form]");
-  const registrationStatus = document.querySelector("[data-registration-status]");
-  const registrationSubmit = document.querySelector("[data-registration-submit]");
-  const registrationSubmitLabel = document.querySelector("[data-registration-submit-label]");
+  const web3Forms = [...document.querySelectorAll("[data-web3form]")];
 
-  if (registrationForm && registrationStatus && registrationSubmit && registrationSubmitLabel) {
-    const defaultSubmitLabel = registrationSubmitLabel.textContent;
+  web3Forms.forEach((form) => {
+    const status = form.querySelector("[data-form-status]");
+    const submit = form.querySelector("[data-form-submit]");
+    const submitLabel = form.querySelector("[data-form-submit-label]");
 
-    const showRegistrationStatus = (message, type = "success") => {
-      registrationStatus.hidden = false;
-      registrationStatus.textContent = message;
-      registrationStatus.classList.toggle("is-error", type === "error");
-      registrationStatus.setAttribute("role", type === "error" ? "alert" : "status");
-      registrationStatus.focus({ preventScroll: true });
+    if (!status || !submit || !submitLabel) return;
+
+    const defaultSubmitLabel = submitLabel.textContent.trim();
+
+    const showFormStatus = (message, type = "success") => {
+      status.hidden = false;
+      status.textContent = message;
+      status.classList.toggle("is-error", type === "error");
+      status.setAttribute("role", type === "error" ? "alert" : "status");
+      status.focus({ preventScroll: true });
     };
 
-    const setRegistrationPending = (isPending) => {
-      registrationForm.setAttribute("aria-busy", String(isPending));
-      registrationSubmit.disabled = isPending;
-      registrationSubmitLabel.textContent = isPending ? "Sending registration…" : defaultSubmitLabel;
+    const setFormPending = (isPending) => {
+      form.setAttribute("aria-busy", String(isPending));
+      submit.disabled = isPending;
+      submitLabel.textContent = isPending
+        ? form.dataset.pendingLabel || "Sending…"
+        : defaultSubmitLabel;
     };
 
-    registrationForm.addEventListener("submit", async (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      if (!registrationForm.checkValidity()) {
-        registrationForm.reportValidity();
+      if (!form.checkValidity()) {
+        form.reportValidity();
         return;
       }
 
-      setRegistrationPending(true);
-      registrationStatus.hidden = true;
-      registrationStatus.classList.remove("is-error");
+      setFormPending(true);
+      status.hidden = true;
+      status.classList.remove("is-error");
 
-      const payload = Object.fromEntries(new FormData(registrationForm));
+      const payload = Object.fromEntries(new FormData(form));
 
       try {
-        const response = await fetch(registrationForm.action, {
+        const response = await fetch(form.action, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -200,20 +205,20 @@
         });
         const result = await response.json();
 
-        if (!response.ok || result.success === false) {
-          throw new Error("Registration request was not accepted.");
+        if (!response.ok || result.success !== true) {
+          throw new Error("The form request was not accepted.");
         }
 
-        registrationForm.reset();
-        showRegistrationStatus("Thank you — your registration has been sent to the conference organisers.");
+        form.reset();
+        showFormStatus(form.dataset.successMessage || "Thank you — your request has been sent.");
       } catch (error) {
-        showRegistrationStatus(
-          "We could not send your registration. Please try again or email singularities-fr-sp@gmail.com.",
+        showFormStatus(
+          form.dataset.errorMessage || "We could not send your request. Please try again.",
           "error"
         );
       } finally {
-        setRegistrationPending(false);
+        setFormPending(false);
       }
     });
-  }
+  });
 })();
