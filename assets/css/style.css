@@ -935,6 +935,10 @@ img {
   background: var(--paper);
 }
 
+.section-participants .section-body {
+  grid-column: 2;
+}
+
 .participants-intro {
   margin-top: clamp(3rem, 6vw, 5.5rem);
   max-width: 52rem;
@@ -1467,6 +1471,10 @@ a.person-name:hover {
   .content-section {
     grid-template-columns: 1fr;
     gap: 2.25rem;
+  }
+
+  .section-participants .section-body {
+    grid-column: 1;
   }
 
   .section-index {
