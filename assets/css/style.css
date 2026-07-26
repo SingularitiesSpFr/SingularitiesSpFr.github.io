@@ -103,6 +103,7 @@ img {
 .site-header :focus-visible,
 .hero :focus-visible,
 .section-ink :focus-visible,
+.contact-strip :focus-visible,
 .site-footer :focus-visible {
   outline-color: var(--white);
   box-shadow: 0 0 0 3px var(--red);
@@ -863,8 +864,7 @@ img {
   gap: .7rem 2rem;
 }
 
-.resource-links a,
-.organisation-links a {
+.resource-links a {
   min-height: 2.75rem;
   padding: .35rem 0;
   display: inline-flex;
@@ -876,8 +876,7 @@ img {
   text-underline-offset: .35rem;
 }
 
-.resource-links a span,
-.organisation-links a span {
+.resource-links a span {
   color: var(--red);
   text-decoration: none;
 }
@@ -932,35 +931,270 @@ img {
   color: var(--red);
 }
 
-.section-organisation {
-  padding-top: clamp(4.5rem, 8vw, 7rem);
-  padding-bottom: clamp(4.5rem, 8vw, 7rem);
+.section-participants {
+  background: var(--paper);
 }
 
-.section-organisation h2 {
-  max-width: 45rem;
+.participants-intro {
+  margin-top: clamp(3rem, 6vw, 5.5rem);
+  max-width: 52rem;
 }
 
-.organisation-row {
-  margin-top: 3rem;
-  padding-top: 1.75rem;
+.funding-intro {
+  margin-top: clamp(3rem, 6vw, 5.5rem);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 3rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, .85fr);
+  gap: clamp(2.5rem, 7vw, 7rem);
+  align-items: start;
+}
+
+.section-copy {
+  max-width: 35rem;
+  margin: .2rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+.person-register {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.person-register > li {
+  min-height: 5.75rem;
+  padding: 1.15rem 0;
+  display: grid;
+  grid-template-columns: 2.75rem minmax(15rem, .82fr) minmax(16rem, 1.18fr);
+  gap: clamp(1rem, 2.7vw, 2.75rem);
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.person-register > li:first-child {
+  border-top: 1px solid rgba(255, 255, 255, .2);
+}
+
+.person-number,
+.group-number,
+.people-count,
+.person-role {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.person-number,
+.group-number {
+  color: #e48064;
+}
+
+.person-copy {
+  min-width: 0;
+}
+
+.person-name {
+  margin: 0;
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.65vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+a.person-name {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  text-decoration: none;
+}
+
+a.person-name span {
+  color: #e48064;
+  font-family: var(--sans);
+  font-size: .72rem;
+}
+
+a.person-name:hover {
+  color: #e6a18d;
+}
+
+.person-affiliation {
+  margin: 0;
+  color: rgba(255, 253, 248, .65);
+  font-size: .87rem;
+  line-height: 1.5;
+}
+
+.participant-register {
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+}
+
+.person-register-light > li {
+  border-color: var(--rule);
+}
+
+.person-register-light > li:first-child {
+  border-color: var(--rule);
+}
+
+.person-register-light .person-name {
+  color: var(--ink);
+}
+
+.person-register-light .person-affiliation {
+  color: var(--ink-soft);
+}
+
+.person-role {
+  color: var(--green-light);
+  text-align: right;
+}
+
+.person-placeholder .person-number {
+  color: var(--red);
+  font-size: 1rem;
+}
+
+.section-people h2 {
+  max-width: 62rem;
+}
+
+.people-groups {
+  margin-top: clamp(3.5rem, 7vw, 6.5rem);
+  border-top: 1px solid rgba(255, 255, 255, .28);
+}
+
+.people-group {
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  display: grid;
+  grid-template-columns: minmax(11rem, .32fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  border-bottom: 1px solid rgba(255, 255, 255, .28);
+}
+
+.people-group-header {
+  align-self: start;
+}
+
+.people-group-header h3 {
+  margin: 1.2rem 0 .65rem;
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 2.8vw, 2.65rem);
+  font-weight: 500;
+  letter-spacing: -.03em;
+  line-height: 1.05;
+}
+
+.people-count {
+  color: rgba(255, 253, 248, .5);
+}
+
+.section-funding {
+  background: var(--paper-deep);
+}
+
+.funding-stage {
+  min-height: 12rem;
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  padding: 1.75rem 0;
+  display: grid;
+  grid-template-columns: minmax(4rem, .2fr) minmax(16rem, 1fr) auto;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.funding-mark {
+  color: var(--red);
+  font-family: var(--serif);
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.funding-stage p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+}
+
+.funding-stage small {
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.contact-strip {
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+  padding: clamp(3.5rem, 7vw, 6rem) var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(10rem, .45fr) minmax(20rem, 1.15fr) minmax(12rem, .4fr);
+  gap: clamp(2rem, 5vw, 5rem);
   align-items: end;
-  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid rgba(255, 255, 255, .18);
+  background: #12342f;
+  color: var(--white);
 }
 
-.organisation-row .lead {
-  max-width: 47rem;
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
+.contact-heading .eyebrow {
+  color: #e48064;
 }
 
-.organisation-links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: .8rem;
+.contact-heading h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 5vw, 4.75rem);
+  font-weight: 500;
+  letter-spacing: -.045em;
+  line-height: .95;
+}
+
+.contact-email {
+  min-width: 0;
+  padding: .75rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 3vw, 2.8rem);
+  line-height: 1.1;
+  text-decoration-color: #e48064;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .45rem;
+  overflow-wrap: anywhere;
+}
+
+.contact-email span {
+  color: #e48064;
+  font-family: var(--sans);
+  font-size: .9rem;
+}
+
+.contact-email:hover {
+  color: #e6a18d;
+}
+
+.contact-note {
+  margin: 0;
+  color: rgba(255, 253, 248, .58);
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .08em;
+  line-height: 1.6;
+  text-transform: uppercase;
 }
 
 .site-footer {
@@ -1068,6 +1302,11 @@ img {
   .hero-actions {
     flex-direction: row;
     align-items: center;
+  }
+
+  .people-group {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .site-footer {
@@ -1244,7 +1483,8 @@ img {
 
   .intro-grid,
   .place-grid,
-  .registration-grid {
+  .registration-grid,
+  .funding-intro {
     grid-template-columns: 1fr;
   }
 
@@ -1320,9 +1560,43 @@ img {
     line-height: .66;
   }
 
-  .organisation-row {
+  .people-group {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .person-register > li {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: .35rem 1.2rem;
     align-items: start;
+  }
+
+  .person-affiliation,
+  .person-role {
+    grid-column: 2;
+  }
+
+  .person-role {
+    text-align: left;
+  }
+
+  .funding-stage {
+    grid-template-columns: 3rem minmax(0, 1fr);
+  }
+
+  .funding-stage small {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .contact-strip {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .contact-note {
+    max-width: 31rem;
   }
 
   .site-footer {
@@ -1380,6 +1654,23 @@ img {
 
   .registration-grid {
     min-width: 0;
+  }
+
+  .person-register > li {
+    grid-template-columns: 2rem minmax(0, 1fr);
+  }
+
+  .funding-stage {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .contact-email {
+    font-size: clamp(1.3rem, 7vw, 2rem);
+  }
+
+  .contact-email span {
+    display: none;
   }
 
   .site-footer {
