@@ -609,6 +609,20 @@ img {
   white-space: nowrap !important;
 }
 
+#programme {
+  --programme-overhang: clamp(4rem, 8vw, 7rem);
+}
+
+#programme .timetable-scroll,
+#programme .programme-detail {
+  width: calc(100% + var(--programme-overhang));
+  margin-left: calc(var(--programme-overhang) * -1);
+}
+
+#programme .timetable-scroll {
+  max-width: none;
+}
+
 .programme-heading {
   display: flex;
   justify-content: space-between;
@@ -630,7 +644,7 @@ img {
 }
 
 .programme-table-tools {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: space-between;
   gap: 1rem 2rem;
@@ -671,8 +685,8 @@ img {
 
 .timetable-scroll {
   max-width: 100%;
-  margin-top: clamp(2.5rem, 5vw, 4.5rem);
-  padding: .2rem .2rem .8rem;
+  margin-top: clamp(1.75rem, 3vw, 2.75rem);
+  padding: .15rem .15rem .55rem;
   overflow-x: auto;
   border-top: 1px solid rgba(255, 255, 255, .3);
   border-bottom: 1px solid rgba(255, 255, 255, .3);
@@ -683,14 +697,14 @@ img {
 
 .programme-table {
   width: 100%;
-  min-width: 62rem;
+  min-width: 52rem;
   border-collapse: separate;
-  border-spacing: .4rem;
+  border-spacing: .25rem;
   table-layout: fixed;
 }
 
 .programme-time-column {
-  width: 8.5rem;
+  width: 6.75rem;
 }
 
 .programme-table th,
@@ -699,7 +713,7 @@ img {
 }
 
 .programme-table thead th {
-  padding: 1rem .9rem;
+  padding: .5rem .55rem;
   background: rgba(255, 255, 255, .08);
   color: var(--white);
   text-align: left;
@@ -717,7 +731,7 @@ img {
 .programme-table thead th:first-child {
   color: rgba(255, 253, 248, .62);
   font-family: var(--mono);
-  font-size: .67rem;
+  font-size: .61rem;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
@@ -730,23 +744,23 @@ img {
 .programme-table thead th span {
   color: #eb8f76;
   font-family: var(--mono);
-  font-size: .67rem;
+  font-size: .6rem;
   letter-spacing: .1em;
   text-transform: uppercase;
 }
 
 .programme-table thead th strong {
-  margin-top: .3rem;
+  margin-top: .2rem;
   font-family: var(--serif);
-  font-size: 1.18rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 .programme-table tbody th {
-  padding: .8rem .65rem;
+  padding: .45rem .4rem;
   color: rgba(255, 253, 248, .65);
   font-family: var(--mono);
-  font-size: .66rem;
+  font-size: .61rem;
   font-weight: 700;
   letter-spacing: .03em;
   text-align: left;
@@ -765,8 +779,8 @@ img {
 .timetable-talk {
   position: relative;
   width: 100%;
-  min-height: 6.25rem;
-  padding: 1rem .9rem 2.2rem;
+  min-height: 3.45rem;
+  padding: .55rem .6rem 1.35rem;
   border: 0;
   background: transparent;
   color: var(--white);
@@ -785,29 +799,29 @@ img {
 }
 
 .timetable-speaker {
-  padding-right: 1.5rem;
+  padding-right: 1.15rem;
   font-family: var(--serif);
-  font-size: 1.12rem;
+  font-size: .91rem;
   font-weight: 500;
   line-height: 1.15;
 }
 
 .timetable-title {
   display: none;
-  margin-top: .75rem;
+  margin-top: .35rem;
   color: rgba(255, 253, 248, .82);
-  font-size: .75rem;
-  line-height: 1.4;
+  font-size: .66rem;
+  line-height: 1.3;
 }
 
 .timetable-selected-state {
   position: absolute;
-  bottom: .72rem;
-  left: .9rem;
+  bottom: .35rem;
+  left: .6rem;
   display: none;
   color: var(--white);
   font-family: var(--mono);
-  font-size: .6rem;
+  font-size: .55rem;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -815,21 +829,21 @@ img {
 
 .timetable-talk::after {
   position: absolute;
-  right: .75rem;
-  bottom: .62rem;
-  width: 1.45rem;
-  height: 1.45rem;
+  right: .42rem;
+  bottom: .3rem;
+  width: 1rem;
+  height: 1rem;
   display: grid;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, .38);
   border-radius: 50%;
   content: "+";
-  font-size: .9rem;
+  font-size: .68rem;
   line-height: 1;
 }
 
 .timetable-talk.is-selected {
-  min-height: 8.6rem;
+  min-height: 5.25rem;
   background: var(--blue);
   box-shadow: inset 0 0 0 2px var(--white);
 }
@@ -845,15 +859,15 @@ img {
 }
 
 .timetable-abstract-jump {
-  min-height: 2.75rem;
-  padding: .55rem .9rem;
+  min-height: 2rem;
+  padding: .3rem .6rem;
   display: flex;
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, .3);
   background: rgba(57, 114, 154, .32);
   color: var(--white);
   font-family: var(--mono);
-  font-size: .61rem;
+  font-size: .56rem;
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -870,14 +884,14 @@ img {
 
 .programme-break-row td > span:not(.visually-hidden),
 .programme-cell-empty > span:not(.visually-hidden) {
-  min-height: 3.3rem;
-  padding: .65rem;
+  min-height: 1.65rem;
+  padding: .2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgba(255, 253, 248, .55);
   font-family: var(--mono);
-  font-size: .63rem;
+  font-size: .57rem;
   font-weight: 700;
   letter-spacing: .05em;
   text-align: center;
@@ -885,7 +899,7 @@ img {
 }
 
 .programme-lunch-row td > span:not(.visually-hidden) {
-  min-height: 4.6rem;
+  min-height: 2.25rem;
 }
 
 .programme-lunch-row .programme-cell-free {
@@ -895,7 +909,7 @@ img {
 .programme-lunch-row .programme-cell-free > span:not(.visually-hidden) {
   color: var(--white);
   font-family: var(--serif);
-  font-size: 1rem;
+  font-size: .86rem;
   font-weight: 500;
   letter-spacing: 0;
   line-height: 1.25;
@@ -907,11 +921,11 @@ img {
 }
 
 .programme-detail {
-  margin-top: clamp(2.5rem, 5vw, 4.5rem);
-  padding: clamp(2rem, 4.5vw, 4rem) 0;
+  margin-top: clamp(1.75rem, 3vw, 2.75rem);
+  padding: clamp(1.5rem, 3vw, 2.75rem) 0;
   display: grid;
-  grid-template-columns: minmax(12rem, .42fr) minmax(0, 1.58fr);
-  gap: clamp(2rem, 6vw, 6rem);
+  grid-template-columns: minmax(10rem, .32fr) minmax(0, 1.68fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
   border-top: 1px solid rgba(255, 255, 255, .3);
   border-bottom: 1px solid rgba(255, 255, 255, .3);
   scroll-margin-top: 6rem;
@@ -934,9 +948,9 @@ img {
 }
 
 .programme-detail-header h3 {
-  margin: 1rem 0 0;
+  margin: .55rem 0 0;
   font-family: var(--serif);
-  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  font-size: clamp(1.75rem, 2.7vw, 2.6rem);
   font-weight: 500;
   letter-spacing: -.04em;
   line-height: 1;
@@ -948,7 +962,7 @@ img {
   align-self: center;
   color: rgba(255, 253, 248, .72);
   font-family: var(--serif);
-  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
 }
 
 .programme-detail-content {
@@ -961,9 +975,9 @@ img {
 
 .programme-detail-content h4 {
   max-width: 48rem;
-  margin: 1rem 0 .4rem;
+  margin: .55rem 0 .25rem;
   font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3.75rem);
+  font-size: clamp(1.75rem, 3vw, 3rem);
   font-weight: 500;
   letter-spacing: -.045em;
   line-height: 1;
@@ -977,8 +991,8 @@ img {
 
 .programme-abstract {
   max-width: 52rem;
-  margin-top: 2.25rem;
-  padding-top: 1.4rem;
+  margin-top: 1.25rem;
+  padding-top: .9rem;
   display: grid;
   grid-template-columns: 6rem minmax(0, 1fr);
   gap: 1rem;
@@ -1001,7 +1015,7 @@ img {
 
 .programme-detail-return {
   min-height: 2.75rem;
-  margin-top: 2rem;
+  margin-top: 1.15rem;
   padding: .55rem 0;
   border: 0;
   border-bottom: 1px solid rgba(255, 255, 255, .6);
@@ -1250,6 +1264,10 @@ img {
   margin-top: 2rem;
 }
 
+.registration-forms {
+  min-width: 0;
+}
+
 .registration-form {
   margin: 0;
   padding: clamp(1.5rem, 3.5vw, 2.75rem);
@@ -1426,6 +1444,68 @@ img {
 
 .registration-status[hidden] {
   display: none;
+}
+
+.registration-cancellation {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(22, 43, 47, .28);
+  background: rgba(255, 253, 248, .5);
+}
+
+.registration-cancellation summary {
+  min-height: 3.75rem;
+  padding: .8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.registration-cancellation summary::-webkit-details-marker {
+  display: none;
+}
+
+.registration-cancellation summary::after {
+  width: 1.8rem;
+  height: 1.8rem;
+  display: grid;
+  flex: none;
+  place-items: center;
+  border: 1px solid rgba(22, 43, 47, .35);
+  border-radius: 50%;
+  content: "+";
+  font-size: 1rem;
+}
+
+.registration-cancellation[open] summary::after {
+  content: "−";
+}
+
+.registration-cancellation summary:hover {
+  color: var(--red);
+}
+
+.cancellation-panel {
+  padding: 0 clamp(1.25rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.cancellation-panel > p {
+  margin: 0 0 1.5rem;
+  color: var(--ink-soft);
+  font-size: .82rem;
+  line-height: 1.55;
+}
+
+.cancellation-form {
+  margin: 0;
 }
 
 .section-participants {
@@ -1961,6 +2041,21 @@ a.person-name:hover {
     grid-column: 1;
   }
 
+  #programme .timetable-scroll,
+  #programme .programme-detail {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  #programme .timetable-scroll {
+    max-width: 100%;
+  }
+
+  .programme-break-row td[colspan] > span:not(.visually-hidden) {
+    justify-content: flex-start;
+    padding-left: .6rem;
+  }
+
   .intro-grid,
   .registration-grid,
   .funding-intro {
@@ -2211,6 +2306,7 @@ a.person-name:hover {
   .hero-actions,
   .venue-links,
   .registration-form,
+  .registration-cancellation,
   .site-footer {
     display: none;
   }
@@ -2257,6 +2353,12 @@ a.person-name:hover {
   .timetable-scroll {
     overflow: visible;
     border-color: #777;
+  }
+
+  #programme .timetable-scroll {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
   }
 
   .programme-table {
