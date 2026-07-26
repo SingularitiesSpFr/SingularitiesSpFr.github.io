@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Spain-France Conference on Singularities and Applications//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:20270419-singularities-angers@singularitiesspfr.github.io
+DTSTAMP:20260726T000000Z
+DTSTART;VALUE=DATE:20270419
+DTEND;VALUE=DATE:20270424
+SUMMARY:Spain–France Conference on Singularities and Applications
+LOCATION:Université d’Angers\, Angers\, France
+DESCRIPTION:Spain–France Conference on Singularities and Applications.
+  Programme and registration details forthcoming.
+URL:https://singularitiesspfr.github.io/
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
