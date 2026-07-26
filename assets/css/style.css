@@ -266,7 +266,6 @@ img {
 }
 
 .hero-place,
-.eyebrow,
 .fact-label,
 .status-label {
   margin: 0;
@@ -497,39 +496,9 @@ img {
   border-bottom: 1px solid var(--rule);
 }
 
-.section-index {
-  height: max-content;
-  padding-top: .35rem;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
-  gap: .75rem .85rem;
-  color: var(--ink-soft);
-  font-family: var(--mono);
-  font-size: .65rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-
-.section-index > span:last-child {
-  grid-column: 1 / -1;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
-
-.section-index-line {
-  height: 1px;
-  margin-top: .42rem;
-  background: currentColor;
-}
-
 .section-body {
   min-width: 0;
-}
-
-.eyebrow {
-  margin-bottom: 1.1rem;
-  color: var(--red);
+  grid-column: 2;
 }
 
 .content-section h2 {
@@ -620,14 +589,6 @@ img {
   border-bottom-color: rgba(255, 255, 255, .17);
   background: var(--ink);
   color: var(--white);
-}
-
-.section-ink .section-index {
-  color: rgba(255, 253, 248, .52);
-}
-
-.section-ink .eyebrow {
-  color: #e48064;
 }
 
 .section-summary {
@@ -898,10 +859,6 @@ img {
   background: var(--paper);
 }
 
-.section-participants .section-body {
-  grid-column: 2;
-}
-
 .participants-intro {
   margin-top: clamp(3rem, 6vw, 5.5rem);
   max-width: 52rem;
@@ -1113,10 +1070,6 @@ a.person-name:hover {
   border-bottom: 1px solid rgba(255, 255, 255, .18);
   background: #12342f;
   color: var(--white);
-}
-
-.contact-heading .eyebrow {
-  color: #e48064;
 }
 
 .contact-heading h2 {
@@ -1427,20 +1380,8 @@ a.person-name:hover {
     gap: 2.25rem;
   }
 
-  .section-participants .section-body {
+  .section-body {
     grid-column: 1;
-  }
-
-  .section-index {
-    width: 9rem;
-    grid-template-columns: auto 1fr;
-  }
-
-  .section-index > span:last-child {
-    grid-column: auto;
-    grid-row: 1;
-    writing-mode: initial;
-    transform: none;
   }
 
   .intro-grid,
@@ -1718,7 +1659,4 @@ a.person-name:hover {
     break-inside: avoid;
   }
 
-  .section-index {
-    margin-bottom: 1rem;
-  }
 }
