@@ -337,25 +337,6 @@ img {
   background: var(--red);
 }
 
-.hero-figure {
-  min-height: 100%;
-  padding: clamp(1.25rem, 2.5vw, 2.5rem);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-left: 1px solid rgba(255, 255, 255, .2);
-  background: linear-gradient(rgba(18, 52, 47, .18), rgba(18, 52, 47, .55));
-}
-
-.hero-logo {
-  width: min(100%, 18rem);
-  height: auto;
-  padding: clamp(.85rem, 1.5vw, 1.25rem);
-  border: 1px solid rgba(255, 255, 255, .24);
-  background: rgba(18, 52, 47, .68);
-  box-shadow: 0 18px 50px rgba(5, 24, 21, .2);
-}
-
 .event-facts {
   width: min(100%, var(--max-width));
   margin: 0 auto;
@@ -1590,15 +1571,6 @@ a.person-name:hover {
     padding-bottom: 3.25rem;
   }
 
-  .hero-figure {
-    min-height: auto;
-    padding: 2rem var(--gutter);
-  }
-
-  .hero-logo {
-    width: min(100%, 14rem);
-  }
-
   .event-facts {
     grid-template-columns: 1fr;
   }
@@ -1672,11 +1644,6 @@ a.person-name:hover {
     background-position: 68% center;
   }
 
-  .hero-figure {
-    border-top: 1px solid rgba(255, 255, 255, .2);
-    border-left: 0;
-  }
-
   .people-groups {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -1709,15 +1676,6 @@ a.person-name:hover {
   .hero h1 {
     font-size: clamp(2.85rem, 14.5vw, 4.5rem);
     line-height: .91;
-  }
-
-  .hero-figure {
-    min-height: auto;
-    padding: 1.2rem;
-  }
-
-  .hero-logo {
-    width: min(100%, 11rem);
   }
 
   .content-section {
@@ -1825,7 +1783,6 @@ a.person-name:hover {
   }
 
   .site-header,
-  .hero-figure,
   .venue-links,
   .registration-disclosure,
   .registration-cancellation,
