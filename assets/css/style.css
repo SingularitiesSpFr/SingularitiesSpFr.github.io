@@ -1173,10 +1173,6 @@ img {
   max-width: 52rem;
 }
 
-.funding-note {
-  margin-top: clamp(1.75rem, 3vw, 2.75rem);
-}
-
 .person-register {
   margin: 0;
   padding: 0;
@@ -1267,6 +1263,120 @@ a.person-name:hover {
 
 .section-funding {
   background: var(--paper-deep);
+}
+
+.funding-logos {
+  margin: clamp(1.75rem, 3vw, 2.75rem) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: clamp(.5rem, 1.25vw, 1.1rem);
+  list-style: none;
+}
+
+.funding-logos li {
+  min-width: 0;
+  grid-column: span 2;
+}
+
+.funding-logos li:nth-child(5) {
+  grid-column: 2 / span 2;
+}
+
+.funding-logos li:nth-child(6) {
+  grid-column: 4 / span 2;
+}
+
+.funding-logos li:nth-child(7) {
+  grid-column: 6 / span 2;
+}
+
+.funding-logo {
+  position: relative;
+  z-index: 0;
+  min-height: clamp(6.25rem, 8.5vw, 7.75rem);
+  padding: clamp(.65rem, 1.2vw, 1.05rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(22, 43, 47, .13);
+  background: rgba(255, 253, 248, .72);
+  text-decoration: none;
+  transform: scale(1);
+  transition:
+    border-color .2s ease,
+    background-color .2s ease,
+    box-shadow .2s ease,
+    transform .2s var(--ease);
+}
+
+.funding-logo img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 5.5rem;
+  object-fit: contain;
+}
+
+.funding-logo:hover {
+  z-index: 1;
+  border-color: rgba(22, 43, 47, .28);
+  background: rgba(255, 253, 248, .95);
+  box-shadow: 0 .45rem 1.2rem rgba(22, 43, 47, .08);
+  transform: scale(1.025);
+}
+
+.funding-logo-rt-gas {
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: #173d1d;
+}
+
+.funding-logo-rt-gas::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(6, 30, 16, .72), rgba(6, 30, 16, .42));
+  content: "";
+}
+
+.funding-logo-rt-gas img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+}
+
+.rt-gas-copy {
+  position: relative;
+  z-index: 2;
+  padding: .8rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: .35rem;
+  color: var(--white);
+  text-align: center;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, .85);
+}
+
+.rt-gas-kicker {
+  font-size: clamp(.5rem, .72vw, .65rem);
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.rt-gas-name {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.02;
 }
 
 .contact-strip {
@@ -1555,6 +1665,21 @@ a.person-name:hover {
     gap: 2rem;
   }
 
+  .funding-logos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .funding-logos li,
+  .funding-logos li:nth-child(5),
+  .funding-logos li:nth-child(6),
+  .funding-logos li:nth-child(7) {
+    grid-column: auto;
+  }
+
+  .funding-logos li:last-child {
+    grid-column: 1 / -1;
+  }
+
   .site-footer {
     grid-template-columns: auto minmax(0, 1fr) auto;
     gap: .65rem 1.25rem;
@@ -1689,6 +1814,10 @@ a.person-name:hover {
 
   .person-register > li {
     grid-template-columns: 1fr;
+  }
+
+  .funding-logo {
+    min-height: 6.75rem;
   }
 
   .contact-email {
