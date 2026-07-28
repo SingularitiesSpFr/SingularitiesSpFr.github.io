@@ -10,7 +10,7 @@
   --rule: #c9c0af;
   --white: #fffdf8;
   --max-width: 1500px;
-  --gutter: clamp(1.25rem, 4vw, 4.75rem);
+  --gutter: clamp(1rem, 3vw, 3rem);
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   --sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
@@ -447,8 +447,8 @@ img {
 }
 
 .fact {
-  min-height: 9.25rem;
-  padding: 1.8rem clamp(1.25rem, 3vw, 3rem);
+  min-height: 7rem;
+  padding: 1.25rem clamp(1rem, 2.5vw, 2.25rem);
   border-right: 1px solid var(--rule);
 }
 
@@ -477,23 +477,22 @@ img {
 .content-section {
   width: min(100%, var(--max-width));
   margin: 0 auto;
-  padding: clamp(5rem, 10vw, 9.5rem) var(--gutter);
-  display: grid;
-  grid-template-columns: clamp(8rem, 16vw, 13.5rem) minmax(0, 1fr);
-  gap: clamp(2rem, 6vw, 7rem);
+  padding: clamp(2.75rem, 5vw, 4.75rem) var(--gutter);
   border-bottom: 1px solid var(--rule);
 }
 
 .section-body {
+  width: 100%;
+  max-width: 82.5rem;
   min-width: 0;
-  grid-column: 2;
+  margin: 0 auto;
 }
 
 .content-section h2 {
   max-width: 58rem;
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(2.55rem, 5.4vw, 5.5rem);
+  font-size: clamp(2.4rem, 4.4vw, 4.75rem);
   font-weight: 500;
   letter-spacing: -.048em;
   line-height: .98;
@@ -501,7 +500,7 @@ img {
 
 .about-copy {
   max-width: 55rem;
-  margin-top: clamp(3rem, 6vw, 5.5rem);
+  margin-top: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .lead {
@@ -531,7 +530,9 @@ img {
 }
 
 #programme {
-  --programme-overhang: clamp(4rem, 8vw, 7rem);
+  --programme-overhang: 0rem;
+  padding-top: clamp(2.25rem, 3.5vw, 3.5rem);
+  padding-bottom: clamp(2.25rem, 3.5vw, 3.5rem);
 }
 
 #programme .timetable-scroll,
@@ -565,7 +566,7 @@ img {
 }
 
 .programme-table-tools {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   gap: 1rem 2rem;
@@ -616,7 +617,7 @@ img {
 
 .timetable-scroll {
   max-width: 100%;
-  margin-top: clamp(1.75rem, 3vw, 2.75rem);
+  margin-top: clamp(1rem, 2vw, 1.5rem);
   padding: .15rem .15rem .55rem;
   overflow-x: auto;
   border-top: 1px solid rgba(255, 255, 255, .3);
@@ -635,7 +636,7 @@ img {
 }
 
 .programme-time-column {
-  width: 6.75rem;
+  width: 7.5rem;
 }
 
 .programme-table th,
@@ -662,7 +663,7 @@ img {
 .programme-table thead th:first-child {
   color: rgba(255, 253, 248, .62);
   font-family: var(--mono);
-  font-size: .61rem;
+  font-size: .72rem;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
@@ -689,9 +690,9 @@ img {
 
 .programme-table tbody th {
   padding: .45rem .4rem;
-  color: rgba(255, 253, 248, .65);
+  color: rgba(255, 253, 248, .82);
   font-family: var(--mono);
-  font-size: .61rem;
+  font-size: .82rem;
   font-weight: 700;
   letter-spacing: .03em;
   text-align: left;
@@ -912,7 +913,7 @@ img {
 }
 
 .venue-layout {
-  margin-top: clamp(3rem, 6vw, 5.5rem);
+  margin-top: clamp(1.75rem, 3vw, 2.75rem);
   display: grid;
   grid-template-columns: minmax(19rem, .82fr) minmax(0, 1.18fr);
   gap: clamp(2.5rem, 7vw, 7rem);
@@ -1066,7 +1067,7 @@ img {
 }
 
 .registration-grid {
-  margin-top: clamp(3rem, 6vw, 5.5rem);
+  margin-top: clamp(1.75rem, 3vw, 2.75rem);
   display: grid;
   grid-template-columns: minmax(13rem, .55fr) minmax(24rem, 1.45fr);
   gap: clamp(2.5rem, 7vw, 7rem);
@@ -1300,12 +1301,12 @@ img {
 }
 
 .participants-intro {
-  margin-top: clamp(3rem, 6vw, 5.5rem);
+  margin-top: clamp(1.75rem, 3vw, 2.75rem);
   max-width: 52rem;
 }
 
 .funding-note {
-  margin-top: clamp(3rem, 6vw, 5.5rem);
+  margin-top: clamp(1.75rem, 3vw, 2.75rem);
 }
 
 .person-register {
@@ -1315,12 +1316,8 @@ img {
 }
 
 .person-register > li {
-  min-height: 5.75rem;
-  padding: 1.15rem 0;
-  display: grid;
-  grid-template-columns: minmax(15rem, .82fr) minmax(16rem, 1.18fr);
-  gap: clamp(1rem, 2.7vw, 2.75rem);
-  align-items: center;
+  min-height: 0;
+  padding: .7rem 0 .8rem;
   border-bottom: 1px solid rgba(255, 255, 255, .2);
 }
 
@@ -1336,13 +1333,14 @@ img {
   margin: 0;
   color: var(--white);
   font-family: var(--serif);
-  font-size: clamp(1.15rem, 1.65vw, 1.45rem);
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   font-weight: 600;
   line-height: 1.25;
 }
 
 a.person-name {
-  min-height: 2.75rem;
+  min-height: 2rem;
+  padding: .1rem 0;
   display: inline-flex;
   align-items: center;
   gap: .55rem;
@@ -1360,10 +1358,10 @@ a.person-name:hover {
 }
 
 .person-affiliation {
-  margin: 0;
+  margin: .05rem 0 0;
   color: rgba(255, 253, 248, .65);
-  font-size: .87rem;
-  line-height: 1.5;
+  font-size: .78rem;
+  line-height: 1.35;
 }
 
 .section-people h2 {
@@ -1371,27 +1369,29 @@ a.person-name:hover {
 }
 
 .people-groups {
-  margin-top: clamp(3.5rem, 7vw, 6.5rem);
-  border-top: 1px solid rgba(255, 255, 255, .28);
+  margin-top: clamp(1.75rem, 3vw, 2.75rem);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
 }
 
 .people-group {
-  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
-  display: grid;
-  grid-template-columns: minmax(11rem, .32fr) minmax(0, 1fr);
-  gap: clamp(2rem, 6vw, 6rem);
-  border-bottom: 1px solid rgba(255, 255, 255, .28);
+  min-width: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, .28);
 }
 
 .people-group-header {
   align-self: start;
+  padding: .9rem 0;
 }
 
 .people-group-header h3 {
   margin: 0;
   color: var(--white);
   font-family: var(--serif);
-  font-size: clamp(1.75rem, 2.8vw, 2.65rem);
+  font-size: clamp(1.45rem, 2.1vw, 2rem);
   font-weight: 500;
   letter-spacing: -.03em;
   line-height: 1.05;
@@ -1545,11 +1545,6 @@ a.person-name:hover {
   .hero-actions {
     flex-direction: row;
     align-items: center;
-  }
-
-  .people-group {
-    grid-template-columns: 1fr;
-    gap: 2rem;
   }
 
   .site-footer {
@@ -1708,15 +1703,6 @@ a.person-name:hover {
     border-bottom: 0;
   }
 
-  .content-section {
-    grid-template-columns: 1fr;
-    gap: 2.25rem;
-  }
-
-  .section-body {
-    grid-column: 1;
-  }
-
   #programme .timetable-scroll,
   #programme .programme-detail {
     width: 100%;
@@ -1740,21 +1726,6 @@ a.person-name:hover {
     grid-template-columns: 1fr;
   }
 
-  .people-group {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .person-register > li {
-    grid-template-columns: 1fr;
-    gap: .35rem;
-    align-items: start;
-  }
-
-  .person-affiliation {
-    grid-column: 1;
-  }
-
   .contact-strip {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -1771,6 +1742,13 @@ a.person-name:hover {
 
   .back-to-top {
     grid-column: 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .people-groups {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
@@ -1814,6 +1792,11 @@ a.person-name:hover {
   .hero-figure {
     min-height: auto;
     padding: 1.2rem;
+  }
+
+  .content-section {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
   }
 
   .content-section h2 {
