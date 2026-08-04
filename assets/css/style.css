@@ -413,6 +413,96 @@ img {
   white-space: nowrap;
 }
 
+.section-speakers {
+  background: var(--paper-deep);
+}
+
+.section-speakers h2 {
+  font-size: clamp(1.95rem, 3.1vw, 3.3rem);
+}
+
+.speakers-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: end;
+}
+
+.speakers-heading > p {
+  margin: 0 0 .45rem;
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.speaker-grid {
+  width: 100%;
+  margin: clamp(1.75rem, 3vw, 2.75rem) 0 0;
+  padding: 0 0 0 1.15rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: clamp(1.5rem, 3vw, 3rem);
+  border-top: 1px solid var(--ink);
+  list-style: disc;
+}
+
+.speaker-card {
+  min-width: 0;
+  padding: .7rem 0 .8rem .2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.speaker-card::marker {
+  color: var(--red);
+}
+
+.speaker-copy {
+  min-width: 0;
+}
+
+.speaker-name {
+  display: inline;
+  font-family: var(--serif);
+  font-size: clamp(1.02rem, 1.25vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: -.015em;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.speaker-name span {
+  color: var(--red);
+  font-family: var(--sans);
+  font-size: .52em;
+  vertical-align: .3em;
+}
+
+.speaker-name:hover {
+  color: var(--red);
+}
+
+.speaker-affiliation {
+  max-width: 31rem;
+  margin: .08rem 0 0;
+  color: var(--ink-soft);
+  font-size: .78rem;
+  line-height: 1.45;
+}
+
+.speakers-more {
+  width: 100%;
+  margin: 0;
+  padding: .85rem 0;
+  border-bottom: 1px solid var(--ink);
+  color: var(--red);
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-style: italic;
+}
+
 .programme-table-tools {
   margin-top: 1rem;
   display: flex;
@@ -911,11 +1001,13 @@ img {
 }
 
 .section-registration {
+  padding-top: clamp(2.5rem, 4.25vw, 3.75rem);
+  padding-bottom: clamp(2.5rem, 4.25vw, 3.75rem);
   background: #d9e3df;
 }
 
 .registration-grid {
-  margin-top: clamp(1.75rem, 3vw, 2.75rem);
+  margin-top: clamp(1.25rem, 2.4vw, 2rem);
   display: grid;
   grid-template-columns: minmax(13rem, .55fr) minmax(24rem, 1.45fr);
   gap: clamp(2.5rem, 7vw, 7rem);
@@ -924,20 +1016,25 @@ img {
 
 .registration-grid .lead {
   margin: 0;
+  font-size: clamp(1.05rem, 1.65vw, 1.45rem);
+  line-height: 1.35;
 }
 
 .registration-forms {
+  width: min(100%, 42rem);
   min-width: 0;
+  justify-self: center;
 }
 
 .registration-disclosure {
   margin: 0;
-  border-top: 3px solid var(--ink);
-  background: rgba(255, 253, 248, .66);
+  background: transparent;
 }
 
 .registration-panel {
+  margin-top: .5rem;
   border-top: 1px solid rgba(22, 43, 47, .2);
+  background: rgba(255, 253, 248, .66);
 }
 
 .registration-form {
@@ -1099,12 +1196,13 @@ img {
 
 .registration-cancellation {
   margin-top: 1rem;
-  border-top: 1px solid rgba(22, 43, 47, .28);
-  background: rgba(255, 253, 248, .5);
+  background: transparent;
 }
 
 .registration-disclosure summary,
 .registration-cancellation summary {
+  margin-right: 0;
+  margin-left: 0;
   min-height: 3.75rem;
   padding: .8rem 1rem;
   display: flex;
@@ -1119,6 +1217,24 @@ img {
   letter-spacing: .06em;
   list-style: none;
   text-transform: uppercase;
+}
+
+.registration-disclosure summary {
+  width: min(100%, 25rem);
+  min-height: 5.25rem;
+  padding: 1.1rem 1.4rem;
+  border: 2px solid var(--ink);
+  background: rgba(255, 253, 248, .72);
+  font-size: .9rem;
+  letter-spacing: .045em;
+}
+
+.registration-cancellation summary {
+  width: min(100%, 20rem);
+  min-height: 3.25rem;
+  padding: .65rem .85rem;
+  border: 1px solid rgba(22, 43, 47, .38);
+  background: rgba(255, 253, 248, .5);
 }
 
 .registration-disclosure summary::-webkit-details-marker,
@@ -1139,6 +1255,20 @@ img {
   font-size: 1rem;
 }
 
+.registration-disclosure summary::after {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0;
+  font-size: 1.15rem;
+}
+
+.registration-cancellation summary::after {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0;
+  font-size: .8rem;
+}
+
 .registration-disclosure[open] summary::after,
 .registration-cancellation[open] summary::after {
   content: "−";
@@ -1150,7 +1280,10 @@ img {
 }
 
 .cancellation-panel {
-  padding: 0 clamp(1.25rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.25rem);
+  margin-top: .5rem;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  border-top: 1px solid rgba(22, 43, 47, .2);
+  background: rgba(255, 253, 248, .5);
 }
 
 .cancellation-panel > p {
@@ -1644,6 +1777,10 @@ a.person-name:hover {
     grid-template-columns: 1fr;
   }
 
+  .speaker-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
 }
 
 @media (max-width: 720px) {
@@ -1663,6 +1800,10 @@ a.person-name:hover {
   .people-groups {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .speaker-card {
+    padding-right: 0;
   }
 
   .funding-logos {
@@ -1756,6 +1897,14 @@ a.person-name:hover {
 
   .content-section h2 {
     font-size: clamp(2.15rem, 10vw, 3.4rem);
+  }
+
+  .section-speakers h2 {
+    font-size: clamp(1.95rem, 9vw, 2.75rem);
+  }
+
+  .speaker-grid {
+    grid-template-columns: 1fr;
   }
 
   .programme-heading {
