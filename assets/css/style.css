@@ -719,6 +719,7 @@ img {
 }
 
 .programme-break-row td > span:not(.visually-hidden),
+.programme-cell-free > span:not(.visually-hidden),
 .programme-cell-empty > span:not(.visually-hidden) {
   min-height: 1.65rem;
   padding: .2rem;
@@ -738,11 +739,11 @@ img {
   min-height: 2.25rem;
 }
 
-.programme-lunch-row .programme-cell-free {
+.programme-table .programme-cell-free {
   background: rgba(57, 114, 154, .25);
 }
 
-.programme-lunch-row .programme-cell-free > span:not(.visually-hidden) {
+.programme-table .programme-cell-free > span:not(.visually-hidden) {
   color: var(--white);
   font-family: var(--serif);
   font-size: .86rem;
