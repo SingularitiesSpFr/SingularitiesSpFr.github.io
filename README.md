@@ -26,3 +26,6 @@ Web3Forms. Web3Forms does not enforce one submission per email, so duplicate
 registrations are reconciled manually in the conference inbox. The public
 participant list is updated by the organisers and includes only people who
 explicitly agreed to publish their name and affiliation.
+Confirmed registrants without publication consent are included only in the
+anonymous “+N confirmed participants” count below the list. Update that count
+alongside the named list, omitting it when zero and using “participant” for one.
